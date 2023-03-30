@@ -35,7 +35,7 @@ interface ImportProps {
 }
 
 const getStandard = (chainId: ChainId) =>
-  chainId !== ChainId.BSC && chainId !== ChainId.BSC_TESTNET ? 'ERC20' : 'BEP20'
+  chainId !== ChainId.BSC_TESTNET && chainId !== ChainId.BSC_TESTNET ? 'ERC20' : 'BEP20'
 
 function ImportToken({ tokens, handleCurrencySelect }: ImportProps) {
   const { chainId } = useActiveChainId()
@@ -107,7 +107,7 @@ function ImportToken({ tokens, handleCurrencySelect }: ImportProps) {
                     {t('View on %site%', {
                       site: getBlockExploreName(token.chainId),
                     })}
-                    {token.chainId === ChainId.BSC && <BscScanIcon color="primary" ml="4px" />})
+                    {token.chainId === ChainId.BSC_TESTNET && <BscScanIcon color="primary" ml="4px" />})
                   </Link>
                 </>
               )}

@@ -3,7 +3,7 @@ import memoize from 'lodash/memoize'
 import { ChainId, Token } from '@pancakeswap/sdk'
 
 const mapping = {
-  [ChainId.BSC]: 'smartchain',
+  [ChainId.BSC_TESTNET]: 'smartchain',
   [ChainId.ETHEREUM]: 'ethereum',
 }
 

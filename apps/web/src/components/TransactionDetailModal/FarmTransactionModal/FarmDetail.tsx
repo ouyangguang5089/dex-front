@@ -41,7 +41,7 @@ const FarmDetail: React.FC<React.PropsWithChildren<HarvestDetailProps>> = ({ ste
               {isFail && <WarningIcon mr="4px" color="failure" />}
               {step.tx && (
                 <LinkExternal
-                  isBscScan={step.chainId === ChainId.BSC}
+                  isBscScan={step.chainId === ChainId.BSC_TESTNET}
                   href={getBlockExploreLink(step.tx, 'transaction', step.chainId)}
                 >
                   {getBlockExploreName(step.chainId)}

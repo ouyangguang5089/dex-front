@@ -32,7 +32,7 @@ export const useSidNameForAddress = (address: string, fetchData = true) => {
   const sidContract = useSIDContract(getSidAddress(`${chainId}`))
 
   const { data: sidName, status } = useSWRImmutable(
-    fetchData && address && [ChainId.BSC, ChainId.BSC_TESTNET].includes(chainId)
+    fetchData && address && [ChainId.BSC_TESTNET, ChainId.BSC_TESTNET].includes(chainId)
       ? ['sidName', chainId, address.toLowerCase()]
       : null,
     async () => {

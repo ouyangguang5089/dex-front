@@ -36,17 +36,20 @@ const INFO_CLIENT_WITH_CHAIN = {
 const blockClientWithChain = (chainId: ChainId) => {
   return new GraphQLClient(BLOCKS_CLIENT_WITH_CHAIN[chainId], {
     fetch,
+    mode: 'cors',
   })
 }
 
 const infoClientWithChain = (chainId: ChainId) => {
   return new GraphQLClient(INFO_CLIENT_WITH_CHAIN[chainId], {
     fetch,
+    mode: 'cors',
   })
 }
 
 const stableSwapClient = new GraphQLClient(STABLESWAP_SUBGRAPH_ENDPOINT, {
   fetch,
+  mode: 'cors',
 })
 
 const getWeekAgoTimestamp = () => {

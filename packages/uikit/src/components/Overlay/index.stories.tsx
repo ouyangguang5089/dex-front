@@ -7,5 +7,5 @@ export default {
 };
 
 export const Default: React.FC<React.PropsWithChildren> = () => {
-  return <Overlay />;
+  return <Overlay isUnmounting />;
 };

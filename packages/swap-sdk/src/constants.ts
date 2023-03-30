@@ -19,7 +19,8 @@ export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
   [ChainId.GOERLI]: FACTORY_ADDRESS_ETH,
   [ChainId.BSC]: FACTORY_ADDRESS,
-  [ChainId.BSC_TESTNET]: '0x6725f303b657a9451d8ba641348b6761a6cc7a17',
+  [ChainId.BSC_TESTNET]: '0x4E3B16150837240A0074B391C075DC00cbDa0f84', // TODO Factory
+   // 0x6725f303b657a9451d8ba641348b6761a6cc7a17
 }
 export const INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
 
@@ -28,7 +29,8 @@ export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
   [ChainId.BSC]: INIT_CODE_HASH,
-  [ChainId.BSC_TESTNET]: '0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66',
+  [ChainId.BSC_TESTNET]: '0xb57f53df2fc0bb49b9edbc0750982f1cddf74468b305ca1c0d837b60621fd153', // TODO INIT_CODE_HASH
+   // 0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66 
 }
 
 export const WETH9 = {
@@ -69,7 +71,8 @@ export const WBNB = {
   ),
   [ChainId.BSC_TESTNET]: new ERC20Token(
     ChainId.BSC_TESTNET,
-    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    '0x3889F84B6c7049f2b5044608c1551e1D2317A4b0', // TODO WBNB
+    // 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd
     18,
     'WBNB',
     'Wrapped BNB',

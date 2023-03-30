@@ -10,5 +10,5 @@ const isSwapHotTokenDisplayETH = atomWithStorageWithErrorCatch<boolean>('pcs:isH
 export const useSwapHotTokenDisplay = () => {
   const { chainId } = useActiveChainId()
   const { isMobile } = useMatchBreakpoints()
-  return useAtom(chainId === ChainId.BSC || isMobile ? isSwapHotTokenDisplay : isSwapHotTokenDisplayETH)
+  return useAtom(chainId === ChainId.BSC_TESTNET || isMobile ? isSwapHotTokenDisplay : isSwapHotTokenDisplayETH)
 }

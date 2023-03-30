@@ -114,7 +114,7 @@ const MultipleBanner: React.FC<React.PropsWithChildren> = () => {
   }, [bannerList, swiperRef])
 
   return (
-    <BannerPlaceHolder walletConnected={Boolean(account) && chainId === ChainId.BSC}>
+    <BannerPlaceHolder walletConnected={Boolean(account) && chainId === ChainId.BSC_TESTNET}>
       <StyledSwiper
         onSwiper={setSwiperRef}
         modules={[Autoplay, Pagination, EffectFade]}

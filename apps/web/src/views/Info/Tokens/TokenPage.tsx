@@ -143,7 +143,7 @@ const TokenPage: React.FC<React.PropsWithChildren<{ routeAddress: string }>> = (
               </Breadcrumbs>
               <Flex justifyContent={[null, null, 'flex-end']} mt={['8px', '8px', 0]}>
                 <LinkExternal
-                  isBscScan={multiChainId[chainName] === ChainId.BSC}
+                  isBscScan={multiChainId[chainName] === ChainId.BSC_TESTNET}
                   mr="8px"
                   color="primary"
                   href={getBlockExploreLink(address, 'address', multiChainId[chainName])}

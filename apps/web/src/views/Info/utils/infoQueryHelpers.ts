@@ -20,7 +20,7 @@ export const multiQuery = async (
   let allFound = false
   let skip = 0
   const client =
-    typeof endpoint === 'string' ? new GraphQLClient(endpoint, { headers: getGQLHeaders(endpoint) }) : endpoint
+    typeof endpoint === 'string' ? new GraphQLClient(endpoint, { headers: getGQLHeaders(endpoint), mode: 'cors' }) : endpoint
   try {
     while (!allFound) {
       let end = subqueries.length

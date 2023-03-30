@@ -10,7 +10,7 @@ import { usePotteryStatus } from './usePotteryStatus'
 import { useVotingStatus } from './useVotingStatus'
 
 export const useMenuItemsStatus = (): Record<string, string> => {
-  const currentBlock = useChainCurrentBlock(ChainId.BSC)
+  const currentBlock = useChainCurrentBlock(ChainId.BSC_TESTNET)
   const activeIfo = useActiveIfoWithBlocks()
   const competitionStatus = useCompetitionStatus()
   const potteryStatus = usePotteryStatus()

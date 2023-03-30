@@ -48,7 +48,7 @@ export const useIsMMQuotingPair = (
     )
       return false
     if (
-      chainId === ChainId.BSC &&
+      chainId === ChainId.BSC_TESTNET &&
       inputCurrency.isToken &&
       outputCurrency.isToken &&
       MM_STABLE_TOKENS_WHITE_LIST[chainId][inputCurrency.address] &&

@@ -51,7 +51,7 @@ export const usePollFarmsV1WithUserData = () => {
   const { address: account } = useAccount()
 
   useSlowRefreshEffect(() => {
-    getFarmConfig(ChainId.BSC).then((farmsConfig) => {
+    getFarmConfig(ChainId.BSC_TESTNET).then((farmsConfig) => {
       const pids = farmsConfig.filter((farmToFetch) => farmToFetch.v1pid).map((farmToFetch) => farmToFetch.v1pid)
 
       dispatch(fetchFarmsPublicDataAsync(pids))

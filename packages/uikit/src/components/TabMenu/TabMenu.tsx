@@ -40,9 +40,10 @@ const TabMenu: React.FC<React.PropsWithChildren<TabMenuProps>> = ({
   fullWidth,
   gap,
   isColorInverse = false,
+  ...attrs
 }) => {
   return (
-    <Wrapper p={["0 4px", "0 16px"]} fullWidth={fullWidth}>
+    <Wrapper p={["0 4px", "0 16px"]} fullWidth={fullWidth} {...attrs}>
       <Inner fullWidth={fullWidth} gap={gap}>
         {Children.map(children, (child: ReactElement, index) => {
           const isActive = activeIndex === index;

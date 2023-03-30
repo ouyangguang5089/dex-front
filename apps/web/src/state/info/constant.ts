@@ -29,12 +29,12 @@ export const multiChainStartTime = {
 }
 
 export const multiChainId = {
-  BSC: ChainId.BSC,
+  BSC: ChainId.BSC_TESTNET,
   ETH: ChainId.ETHEREUM,
 }
 
 export const multiChainPaths = {
-  [ChainId.BSC]: '',
+  [ChainId.BSC_TESTNET]: '',
   [ChainId.ETHEREUM]: '/eth',
 }
 

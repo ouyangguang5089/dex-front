@@ -10,7 +10,7 @@ export const useUserCakeLockStatus = () => {
   const cakeVaultContract = useCakeVaultContract()
 
   const { data: userCakeLockStatus = null } = useSWRImmutable(
-    account && chainId === ChainId.BSC ? ['userCakeLockStatus', account] : null,
+    account && chainId === ChainId.BSC_TESTNET ? ['userCakeLockStatus', account] : null,
     async () => {
       const { locked, lockEndTime } = await cakeVaultContract.userInfo(account)
       const lockEndTimeStr = lockEndTime.toString()

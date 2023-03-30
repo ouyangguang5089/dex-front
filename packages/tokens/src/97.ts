@@ -15,7 +15,8 @@ export const bscTestnetTokens = {
   ),
   bake: new ERC20Token(
     ChainId.BSC_TESTNET,
-    '0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5',
+    '0x95119E5f6EB49dd384FE20A3c49aA809347643B4', // TODO BAKE
+    // '0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5',
     18,
     'BAKE',
     'Bakeryswap Token',
@@ -30,7 +31,10 @@ export const bscTestnetTokens = {
     'USDC',
     'Binance-Peg USD Coin',
   ),
-  usdt: new ERC20Token(ChainId.BSC_TESTNET, '0x0fB5D7c73FA349A90392f873a4FA1eCf6a3d0a96', 18, 'USDT', 'Tether USD'),
+  usdt: new ERC20Token(ChainId.BSC_TESTNET,
+    '0x060a5563455E76d1C207Ac1deB3ABc984C757aE4', // TODO USDT
+    // '0x0fB5D7c73FA349A90392f873a4FA1eCf6a3d0a96'
+    18, 'USDT', 'Tether USD'),
   mockBusd: new ERC20Token(
     ChainId.BSC_TESTNET,
     '0x3304dd20f6Fe094Cb0134a6c8ae07EcE26c7b6A7',

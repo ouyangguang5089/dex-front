@@ -38,7 +38,7 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
 >(
   'farmsV1/fetchFarmsPublicDataAsync',
   async (pids) => {
-    const farmsConfig = await getFarmConfig(ChainId.BSC)
+    const farmsConfig = await getFarmConfig(ChainId.BSC_TESTNET)
     const poolLength = await fetchMasterChefFarmPoolLength()
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
     const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
@@ -86,7 +86,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
 >(
   'farmsV1/fetchFarmUserDataAsync',
   async ({ account, pids }) => {
-    const farmsConfig = await getFarmConfig(ChainId.BSC)
+    const farmsConfig = await getFarmConfig(ChainId.BSC_TESTNET)
     const poolLength = await fetchMasterChefFarmPoolLength()
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
     const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
