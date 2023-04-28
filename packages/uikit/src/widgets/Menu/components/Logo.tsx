@@ -22,7 +22,6 @@ const StyledLink = styled("a")`
     }
   }
   .desktop-icon {
-    width: 160px;
     display: none;
     ${({ theme }) => theme.mediaQueries.lg} {
       display: block;
@@ -47,7 +46,7 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
   const innerLogo = (
     <>
       <LogoIcon className="mobile-icon" />
-      <LogoWithTextIcon className="desktop-icon" />
+      <LogoWithTextIcon  className="desktop-icon" />
     </>
   );
 

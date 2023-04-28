@@ -91,7 +91,7 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
   }, [mobileTooltipClickOutside])
 
   const titleContent = (
-    <Flex width="100%" alignItems="center" justifyContent="space-between" flexDirection="column">
+    <Flex width="100%" alignItems="center" justifyContent="space-between" flexDirection="column" >
       <Flex flexDirection="column" alignItems="flex-start" width="100%" marginBottom={15}>
         <Swap.CurrencyInputHeaderTitle>{title}</Swap.CurrencyInputHeaderTitle>
       </Flex>
@@ -99,7 +99,7 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
         <Swap.CurrencyInputHeaderSubTitle>{subtitle}</Swap.CurrencyInputHeaderSubTitle>
       </Flex>
       <Flex width="100%" justifyContent="end">
-        <V3SwapPromotionIcon />
+        {/* <V3SwapPromotionIcon /> */}
         {isChartSupported && setIsChartDisplayed && (
           <ColoredIconButton
             onClick={() => {
@@ -114,7 +114,7 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
             {isChartDisplayed ? <ChartDisableIcon color="textSubtle" /> : <ChartIcon width="24px" color="textSubtle" />}
           </ColoredIconButton>
         )}
-        <ColoredIconButton
+        {/* <ColoredIconButton
           variant="text"
           scale="sm"
           onClick={() => {
@@ -139,13 +139,13 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
               {tooltipVisible && (!isMobile || mobileTooltipShow) && tooltip}
             </>
           )}
-        </ColoredIconButton>
+        </ColoredIconButton> */}
         <NotificationDot show={expertMode}>
           <GlobalSettings color="textSubtle" mr="0" mode={SettingsMode.SWAP_LIQUIDITY} />
         </NotificationDot>
-        <IconButton onClick={onPresentTransactionsModal} variant="text" scale="sm">
+        {/* <IconButton onClick={onPresentTransactionsModal} variant="text" scale="sm">
           <HistoryIcon color="textSubtle" width="24px" />
-        </IconButton>
+        </IconButton> */}
         <IconButton variant="text" scale="sm" onClick={handleOnClick}>
           <RefreshIcon disabled={!hasAmount} color="textSubtle" width="27px" />
         </IconButton>

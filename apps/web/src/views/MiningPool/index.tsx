@@ -88,7 +88,7 @@ const MiningPoolPage = () => {
                     </NewTabMenu>
                     <Box width="90px">
                         <InputGroup startIcon={<Search width="20px" />} scale="sm">
-                            <Input type="text" value="" />
+                            <Input type="text" value="" onChange={console.log} />
                         </InputGroup>
                     </Box>
                 </Row>

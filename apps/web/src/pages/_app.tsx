@@ -72,7 +72,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
+          content="SmartSwap"
         />
         <meta name="theme-color" content="#1FC7D4" />
         {(Component as NextPageWithLayout).mp && (
@@ -98,7 +98,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
           </PersistGate>
         </Blocklist>
       </Providers>
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         id="google-tag"
         dangerouslySetInnerHTML={{
@@ -123,7 +123,7 @@ j=d.createElement(s),dl=l!='customDataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','customDataLayer','${process.env.NEXT_PUBLIC_NEW_GTAG}');
           `,
         }}
-      />
+      /> */}
     </>
   )
 }
@@ -169,7 +169,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
           <Component {...pageProps} />
         </Layout>
       </ShowMenu>
-      <EasterEgg iterations={2} />
+      {/* <EasterEgg iterations={2} /> */}
       <ToastListener />
       <FixedSubgraphHealthIndicator />
       <NetworkModal pageSupportedChains={Component.chains} />

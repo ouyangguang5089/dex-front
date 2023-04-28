@@ -284,7 +284,7 @@ export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: C
         hasAmount={hasAmount}
         onRefreshPrice={onRefreshPrice}
       />
-      <Wrapper id="swap-page" style={{ minHeight: '412px' }}>
+      <Wrapper id="swap-page" style={{ minHeight: '412px',backgroundColor:'#CEF249' }} >
         <AutoColumn gap="sm">
           <CurrencyInputPanel
             label={independentField === Field.OUTPUT && !showWrap && tradeInfo ? t('From (estimated)') : t('From')}

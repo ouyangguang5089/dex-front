@@ -49,13 +49,10 @@ const InputPanel = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  background-color: ${({ theme }) => theme.colors.backgroundAlt};
   z-index: 1;
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
   border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
-  box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
   ${({ zapStyle }) =>
     !!zapStyle &&
     css`
@@ -180,18 +177,18 @@ export default function CurrencyInputPanel({
               }
             }}
           >
-            <Flex alignItems="center" justifyContent="space-between">
+            <Flex alignItems="center" justifyContent="space-between" style={{backgroundColor: "#000",padding:"9px 12px",color: "#fff",borderRadius:"20px"}}>
               {pair ? (
                 <DoubleCurrencyLogo currency0={pair.token0} currency1={pair.token1} size={16} margin />
               ) : currency ? (
                 <CurrencyLogo currency={currency} size="24px" style={{ marginRight: '8px' }} />
               ) : null}
               {pair ? (
-                <Text id="pair" bold>
+                <Text id="pair" bold style={{color:"#fff"}}>
                   {pair?.token0.symbol}:{pair?.token1.symbol}
                 </Text>
               ) : (
-                <Text id="pair" bold>
+                <Text id="pair" bold style={{color:"#fff"}}>
                   {(currency && currency.symbol && currency.symbol.length > 10
                     ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
                         currency.symbol.length - 5,
@@ -200,7 +197,7 @@ export default function CurrencyInputPanel({
                     : currency?.symbol) || t('Select a currency')}
                 </Text>
               )}
-              {!disableCurrencySelect && <ChevronDownIcon />}
+              {!disableCurrencySelect && <ChevronDownIcon style={{fill:"#fff",stroke:"#fff"}} />}
             </Flex>
           </CurrencySelectButton>
           {token && tokenAddress ? (
