@@ -23,7 +23,7 @@ const Page: React.FC<
   const { chainId } = useActiveChainId()
   const isBSC = chainId === ChainId.BSC_TESTNET
   const externalText = isBSC ? t('Bridge assets to BNB Chain') : ''
-  const externalLinkUrl = isBSC ? 'https://bridge.pancakeswap.finance/' : ''
+  const externalLinkUrl = isBSC ? '/' : '' // TODO 外链
 
   return (
     <>

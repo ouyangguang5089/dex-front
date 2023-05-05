@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "pancakeswap",
-  "title": "PancakeSwap Token List",
-  "description": "Schema for lists of tokens compatible with the PancakeSwap Interface, including Uniswap standard and PancakeSwap Aptos",
+  "title": "SmartSwap Token List",
+  "description": "Schema for lists of tokens compatible with the SmartSwap Interface, including Uniswap standard and SmartSwap Aptos",
   "definitions": {
     "Version": {
       "type": "object",

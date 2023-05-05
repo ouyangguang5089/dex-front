@@ -227,8 +227,8 @@ function ManageLists({
         }
 
         if (l1 && l2) {
-          // Always make PancakeSwap list in top.
-          const keyword = 'pancakeswap'
+          // Always make SmartSwap list in top.
+          const keyword = 'smartswap'
           if (!l1.name.toLowerCase().includes(keyword) && l2.name.toLowerCase().includes(keyword)) {
             return 1
           }

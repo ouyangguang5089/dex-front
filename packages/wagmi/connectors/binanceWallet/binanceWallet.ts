@@ -121,6 +121,7 @@ export class BinanceWalletConnector extends InjectedConnector {
       try {
         await provider.switchNetwork?.(mappingNetwork[chainId])
 
+        // @ts-ignore
         return (
           this.chains.find((x) => x.id === chainId) || {
             id: chainId,

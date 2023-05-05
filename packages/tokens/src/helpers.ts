@@ -11,7 +11,7 @@ export const EMPTY_LIST: TokenAddressMap<ChainId> = {
   [ChainId.BSC_TESTNET]: {},
 }
 
-export function serializeTokens(unserializedTokens) {
+export function serializeTokens(unserializedTokens: { [x: string]: { serialize: any } }) {
   const serializedTokens = Object.keys(unserializedTokens).reduce((accum, key) => {
     return { ...accum, [key]: unserializedTokens[key].serialize }
   }, {} as any)
