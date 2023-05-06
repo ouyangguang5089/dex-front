@@ -15,6 +15,12 @@ const config = {
   compiler: {
     styledComponents: true,
   },
+  // eslint: {
+  //   ignoreDuringBuilds: true,
+  // },
+  // typescript: {
+  //   ignoreBuildErrors: true
+  // },
   experimental: {
     scrollRestoration: true,
     transpilePackages: [
@@ -148,7 +154,7 @@ const config = {
       }))
     ]
   },
-  webpack: (webpackConfig, { webpack }) => {
+  webpack: (webpackConfig) => {
     return webpackConfig
   },
 }

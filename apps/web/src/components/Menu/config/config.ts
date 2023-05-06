@@ -80,15 +80,20 @@ const config: (
           },
         ].map((item) => addMenuItemSupported(item, chainId)),
       },
-      {
-        label: t('Submit Token'),
-        href: '', // TODO 外链
-        icon: MiningPoolIcon,
-        fillIcon: MiningPoolFillIcon,
-        image: '/images/decorations/pe2.png',
-        showItemsOnMobile: true,
-        items: []
-      },
+      // {
+      //   label: t('Submit Token'),
+      //   href: '/submit-token', // TODO 外链
+      //   icon: MiningPoolIcon,
+      //   fillIcon: MiningPoolFillIcon,
+      //   image: '/images/decorations/pe2.png',
+      //   showItemsOnMobile: false,
+      //   items: [
+      //     {
+      //       label: t('Submit Token'),
+      //       href: '/submit-token', 
+      //     },
+      //   ].map((item) => addMenuItemSupported(item, chainId)),
+      // },
     ].map((item) => addMenuItemSupported(item, chainId))
 
 export default config

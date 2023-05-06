@@ -47,7 +47,7 @@ export function ChoosePair({
           'Liquidity providers earn a 0.17% trading fee on all trades made for that token pair, proportional to their share of the liquidity pair.',
         )}
         backTo="/liquidity"
-        IconSlot={<V3SwapPromotionIcon wrapperStyle={{ marginRight: '10px' }} />}
+        // IconSlot={<V3SwapPromotionIcon wrapperStyle={{ marginRight: '10px' }} />}
       />
       <CardBody>
         <Box>

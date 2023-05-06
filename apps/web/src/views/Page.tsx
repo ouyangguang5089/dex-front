@@ -19,11 +19,11 @@ const Page: React.FC<
   helpUrl = EXCHANGE_HELP_URLS,
   ...props
 }) => {
-  const { t } = useTranslation()
-  const { chainId } = useActiveChainId()
-  const isBSC = chainId === ChainId.BSC_TESTNET
-  const externalText = isBSC ? t('Bridge assets to BNB Chain') : ''
-  const externalLinkUrl = isBSC ? '/' : '' // TODO 外链
+  // const { t } = useTranslation()
+  // const { chainId } = useActiveChainId()
+  // const isBSC = chainId === ChainId.BSC_TESTNET
+  // const externalText = isBSC ? t('Bridge assets to BNB Chain') : ''
+  // const externalLinkUrl = isBSC ? '/' : '' // TODO 外链
 
   return (
     <>
@@ -32,8 +32,8 @@ const Page: React.FC<
         noMinHeight={noMinHeight}
         hideFooterOnDesktop={hideFooterOnDesktop}
         helpUrl={helpUrl}
-        externalText={externalText}
-        externalLinkUrl={externalLinkUrl}
+        // externalText={externalText}
+        // externalLinkUrl={externalLinkUrl}
         {...props}
       >
         {children}

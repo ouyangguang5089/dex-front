@@ -50,13 +50,13 @@ const CardHeading: React.FC<React.PropsWithChildren<ExpandableSectionProps>> = (
         <Skeleton mr="8px" width={63} height={63} variant="circle" />
       )}
       <Flex flexDirection="column" alignItems="flex-end">
-        {isReady ? (
+        {/* {isReady ? (
           <Heading mb="4px">
             {v3PromotionFarms?.[chainId]?.[pid] && <V3SwapPromotionIcon />} {lpLabel.split(' ')[0]}
           </Heading>
         ) : (
           <Skeleton mb="4px" width={60} height={18} />
-        )}
+        )} */}
         <Flex justifyContent="center">
           {isReady && isStable && <StableFarmTag mr="4px" />}
           {isReady && boosted && <BoostedTag mr="4px" />}

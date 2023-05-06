@@ -1,10 +1,12 @@
-import { Box, Flex, Heading, Text, Button, InputGroup, TabMenu, Input, Tab, Row, Card, CardBody } from '@pancakeswap/uikit'
+import { Box, Flex, Heading, Text, Button, InputGroup, TabMenu, Input, Tab, Row, Card, CardBody, Loading, SearchIcon } from '@pancakeswap/uikit'
 
-import Search from '@pancakeswap/uikit/src/components/Svg/Icons/Search'
+
+import { useGetMiningCoin, useGetMiningList } from 'api'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { CurrencyLogo } from 'views/Info/components/CurrencyLogo'
+
 
 
 const Banner = styled(Flex)`
@@ -51,10 +53,129 @@ const Page = styled(Box)`
     --colors-text: #21212F;
 `
 
+const Empty = () => {
+    return (
+        <Box marginX="auto" padding="40px 0 20px">
+            <Image
+                width={159}
+                height={133}
+                src="/images/invite-rebate/list-empty.png"
+                alt=""
+                unoptimized
+            />
+            <Text mt="18px" textAlign="center">暂无记录</Text>
+        </Box>
+    )
+}
+
+const PairItem = ({
+    pairSymbol,
+    pairToken0,
+    pairToken1,
+    userRewardVo,
+    totalRewards,
+    totalTransactionAmount,
+    currentTransactionVolume,
+}) => {
+    const smallCount = 2;
+    const FormatNum = (num: any) => {
+        return Number.isNaN(Number(num)) ? 0 : Number(num).toFixed(smallCount)
+    }
+    return (
+        <NewCard style={{ width: "100%", marginTop: "16px" }}>
+            <CardBody>
+                <Row justifyContent="flex-start" alignItems="center">
+                    <Box position="relative" width="45px" height="30px">
+                        <NewCurrencyLogo style={{ left: "0px", zIndex: "2" }} address={pairToken0} size="25px" chainName="BSC" />
+                        <NewCurrencyLogo style={{ right: "0px", top: "0px" }} address={pairToken1} size="25px" chainName="BSC" />
+                    </Box>
+                    <Heading ml="10px" scale="md">{pairSymbol}</Heading>
+                </Row>
+                <Row marginTop="16px" alignItems="center">
+                    <dl style={{ width: "33%" }}>
+                        <dt >
+                            <Text small color="#909097">当前总奖励</Text>
+                        </dt>
+                        <dd >
+                            <Text small>{FormatNum(totalRewards)} STP</Text>
+                        </dd>
+                    </dl>
+                    <dl style={{ width: "33%" }}>
+                        <dt >
+                            <Text small color="#909097">交易总额</Text>
+                        </dt>
+                        <dd >
+                            <Text small>{FormatNum(totalTransactionAmount)}</Text>
+                        </dd>
+                    </dl>
+                    <dl style={{ width: "33%" }}>
+                        <dt >
+                            <Text small color="#909097">当前交易额</Text>
+                        </dt>
+                        <dd >
+                            <Text small>{FormatNum(currentTransactionVolume)}</Text>
+                        </dd>
+                    </dl>
+                </Row>
+                <Row marginTop="16px" alignItems="center">
+                    <dl style={{ width: "33%" }}>
+                        <dt >
+                            <Text small color="#909097">个人交易额</Text>
+                        </dt>
+                        <dd >
+                            <Text small>{FormatNum(userRewardVo.personalRewards)}</Text>
+                        </dd>
+                    </dl>
+                    <dl style={{ width: "33%" }}>
+                        <dt >
+                            <Text small color="#909097">个人奖励</Text>
+                        </dt>
+                        <dd >
+                            <Text small color="#884FDB">{FormatNum(userRewardVo.personalTotalTransactionAmount)} STP</Text>
+                        </dd>
+                    </dl>
+                </Row>
+            </CardBody>
+        </NewCard>
+    )
+}
+
+
 // TODO i18n
-const MiningPoolPage = () => {
+const MiningPool = () => {
     const [index, setIndex] = useState(0);
     const handleClick = (newIndex) => setIndex(newIndex);
+    const [totalRewards, setTotalRewards] = useState(0);
+    const [userRewards, setUserRewards] = useState(0);
+    const [search, setSearch] = useState('');
+    const { data: coinResult } = useGetMiningCoin();
+    const coinList = useMemo(() => {
+        const tmp = ['全部'];
+        if (coinResult?.code === 200 && coinResult?.data) {
+            coinResult.data.forEach(item => {
+                tmp.push(item.coinName)
+            });
+        }
+        return tmp;
+    }, [coinResult]);
+    const { data: listResult, mutate, isLoading, isValidating } = useGetMiningList({
+        coin: coinList[index] === '全部' ? '' : coinList[index]
+    });
+    const coinPairs = useMemo(() => {
+        let tmp = [];
+        if (listResult?.code === 200 && listResult?.data) {
+            if (listResult?.data.pageTotalRewards) setTotalRewards(listResult?.data.pageTotalRewards)
+            if (listResult?.data.pagePersonalTotalRewards) setUserRewards(listResult?.data.pagePersonalTotalRewards)
+            tmp = listResult?.data?.miningpoolInfoList || [];
+        }
+        return tmp;
+    }, [listResult])
+
+
+    useEffect(() => {
+        mutate()
+    }, [index, mutate]);
+
     return (
         <Page >
             <Flex width={['335px']} marginX="auto" height="100%" flexDirection="column" justifyContent="center" alignItems="flex-start" >
@@ -62,9 +183,9 @@ const MiningPoolPage = () => {
                 <Banner justifyContent="space-between" marginY="12px" padding="16px">
                     <Box>
                         <Text marginTop="6px">当前池子总奖励</Text>
-                        <Text fontWeight="400" marginTop="6px">1.766.119.05 STP</Text>
+                        <Text fontWeight="400" marginTop="6px">{totalRewards} STP</Text>
                         <Text marginTop="16px">当前个人可提现奖励</Text>
-                        <Text fontWeight="400" marginTop="6px">0.00 STP</Text>
+                        <Text fontWeight="400" marginTop="6px">{userRewards} STP</Text>
                     </Box>
                     <Flex flexDirection="column" alignItems="center">
                         <Image
@@ -79,77 +200,27 @@ const MiningPoolPage = () => {
                         </WithdrawalButton>
                     </Flex>
                 </Banner>
-                <Row marginTop="32px">
+                <Flex width="100%" marginTop="32px" justifyContent="space-between">
                     <NewTabMenu activeIndex={index} onItemClick={handleClick} gap="2">
-                        <NewTab style={{ backgroundColor: index === 0 ? "#CEF249" : "transparent" }}>全部</NewTab>
-                        <NewTab style={{ backgroundColor: index === 1 ? "#CEF249" : "transparent" }}>USDT</NewTab>
-                        <NewTab style={{ backgroundColor: index === 2 ? "#CEF249" : "transparent" }}>BUSD</NewTab>
-                        <NewTab style={{ backgroundColor: index === 3 ? "#CEF249" : "transparent" }}>STP</NewTab>
+                        {coinList.map((item, i) => (
+                            <NewTab key={`cointable-${item}`} style={{ backgroundColor: index === i ? "#CEF249" : "transparent" }}>{item}</NewTab>
+                        ))}
                     </NewTabMenu>
                     <Box width="90px">
-                        <InputGroup startIcon={<Search width="20px" />} scale="sm">
-                            <Input type="text" value="" onChange={console.log} />
+                        <InputGroup startIcon={<SearchIcon width="20px" />} scale="sm">
+                            <Input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
                         </InputGroup>
                     </Box>
-                </Row>
-                <NewCard style={{ width: "100%", marginTop: "16px" }}>
-                    <CardBody>
-                        <Row justifyContent="flex-start" alignItems="center">
-                            <Box position="relative" width="45px" height="30px">
-                                <NewCurrencyLogo style={{ left: "0px", zIndex: "2" }} address="0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c" size="25px" chainName="BSC" />
-                                <NewCurrencyLogo style={{ right: "0px", top: "0px" }} address="0x55d398326f99059fF775485246999027B3197955" size="25px" chainName="BSC" />
-                            </Box>
-                            <Heading ml="10px" scale="md">BNB/USDT</Heading>
-                        </Row>
-                        <Row marginTop="16px" alignItems="center">
-                            <dl style={{ width: "33%" }}>
-                                <dt >
-                                    <Text small color="#909097">当前总奖励</Text>
-                                </dt>
-                                <dd >
-                                    <Text small>1.766.05 STP</Text>
-                                </dd>
-                            </dl>
-                            <dl style={{ width: "33%" }}>
-                                <dt >
-                                    <Text small color="#909097">交易总额</Text>
-                                </dt>
-                                <dd >
-                                    <Text small>1.766.05 亿</Text>
-                                </dd>
-                            </dl>
-                            <dl style={{ width: "33%" }}>
-                                <dt >
-                                    <Text small color="#909097">当前交易额</Text>
-                                </dt>
-                                <dd >
-                                    <Text small>0.99亿</Text>
-                                </dd>
-                            </dl>
-                        </Row>
-                        <Row marginTop="16px" alignItems="center">
-                            <dl style={{ width: "33%" }}>
-                                <dt >
-                                    <Text small color="#909097">个人交易额</Text>
-                                </dt>
-                                <dd >
-                                    <Text small>0.00</Text>
-                                </dd>
-                            </dl>
-                            <dl style={{ width: "33%" }}>
-                                <dt >
-                                    <Text small color="#909097">个人奖励</Text>
-                                </dt>
-                                <dd >
-                                    <Text small color="#884FDB">0.00 STP</Text>
-                                </dd>
-                            </dl>
-                        </Row>
-                    </CardBody>
-                </NewCard>
+                </Flex>
+                <Flex width="100%" padding="10px 0" justifyContent="center">
+                    {isLoading && isValidating ? <Loading /> : coinPairs.length === 0 && <Empty/>}
+                </Flex>
+                {coinPairs.map(item => (
+                    <PairItem {...item} key={`coinpairs-${item?.poolId}`} />
+                ))}
             </Flex>
         </Page>
     )
 }
 
-export default MiningPoolPage
+export default MiningPool;
