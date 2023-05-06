@@ -25,7 +25,7 @@ import {
   AutoColumn,
   ColumnCenter,
 } from '@pancakeswap/uikit'
-import { V3SwapPromotionIcon } from 'components/V3SwapPromotionIcon'
+// import { V3SwapPromotionIcon } from 'components/V3SwapPromotionIcon'
 import { useDebouncedChangeHandler } from '@pancakeswap/hooks'
 import { useWeb3LibraryContext } from '@pancakeswap/wagmi'
 import { BigNumber } from '@ethersproject/bignumber'

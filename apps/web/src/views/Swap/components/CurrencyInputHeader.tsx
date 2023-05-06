@@ -1,24 +1,24 @@
-import { useTranslation } from '@pancakeswap/localization'
+// import { useTranslation } from '@pancakeswap/localization'
 import {
   ChartDisableIcon,
   ChartIcon,
   Flex,
-  HistoryIcon,
-  HotDisableIcon,
-  HotIcon,
+  // HistoryIcon,
+  // HotDisableIcon,
+  // HotIcon,
   IconButton,
   NotificationDot,
   Swap,
-  Text,
-  TooltipText,
+  // Text,
+  // TooltipText,
   useModal,
-  useTooltip,
+  // useTooltip,
 } from '@pancakeswap/uikit'
 
 import TransactionsModal from 'components/App/Transactions/TransactionsModal'
 import GlobalSettings from 'components/Menu/GlobalSettings'
 import RefreshIcon from 'components/Svg/RefreshIcon'
-import { V3SwapPromotionIcon } from 'components/V3SwapPromotionIcon'
+// import { V3SwapPromotionIcon } from 'components/V3SwapPromotionIcon'
 import { useSwapHotTokenDisplay } from 'hooks/useSwapHotTokenDisplay'
 import { useAtom } from 'jotai'
 import { ReactElement, useCallback, useContext, useEffect, useState } from 'react'
@@ -53,22 +53,22 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
   onRefreshPrice,
   title,
 }) => {
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
   const [mobileTooltipShowOnce, setMobileTooltipShowOnce] = useAtom(mobileShowOnceTokenHighlightAtom)
   const [mobileTooltipShow, setMobileTooltipShow] = useState(false)
 
-  const { tooltip, tooltipVisible, targetRef } = useTooltip(<Text>{t('Check out the top traded tokens')}</Text>, {
-    placement: isMobile ? 'top' : 'bottom',
-    trigger: isMobile ? 'focus' : 'hover',
-    ...(isMobile && { manualVisible: mobileTooltipShow }),
-  })
+  // const { tooltip, tooltipVisible, targetRef } = useTooltip(<Text>{t('Check out the top traded tokens')}</Text>, {
+  //   placement: isMobile ? 'top' : 'bottom',
+  //   trigger: isMobile ? 'focus' : 'hover',
+  //   ...(isMobile && { manualVisible: mobileTooltipShow }),
+  // })
 
   const { isChartSupported, isChartDisplayed, setIsChartDisplayed } = useContext(SwapFeaturesContext)
   const [expertMode] = useExpertModeManager()
   const toggleChartDisplayed = () => {
     setIsChartDisplayed((currentIsChartDisplayed) => !currentIsChartDisplayed)
   }
-  const [onPresentTransactionsModal] = useModal(<TransactionsModal />)
+  // const [onPresentTransactionsModal] = useModal(<TransactionsModal />)
   const handleOnClick = useCallback(() => onRefreshPrice?.(), [onRefreshPrice])
   const [isSwapHotTokenDisplay, setIsSwapHotTokenDisplay] = useSwapHotTokenDisplay()
 

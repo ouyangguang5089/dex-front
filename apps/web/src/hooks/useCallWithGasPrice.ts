@@ -35,6 +35,7 @@ export function useCallWithGasPrice() {
 
       return tx
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [gasPrice, userGasPrice],
   )
 

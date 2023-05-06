@@ -9,7 +9,7 @@ export { getFarmsPriceHelperLpFiles }
 
 export const getPoolsPriceHelperLpFiles = (chainId: ChainId) => {
   switch (chainId) {
-    case ChainId.BSC_TESTNET:
+    case ChainId.BSC:
       return PoolsBscPriceHelper
     case ChainId.BSC_TESTNET:
       return PoolsBscTestnetPriceHelper

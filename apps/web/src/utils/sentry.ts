@@ -1,6 +1,6 @@
 
 
-const assignError = (maybeError: any) => {
+export const assignError = (maybeError: any) => {
   if (typeof maybeError === 'string') {
     return new Error(maybeError)
   }
