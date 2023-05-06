@@ -6,7 +6,6 @@ import { useToast } from '@pancakeswap/uikit'
 import { useAccount } from 'wagmi'
 import { ROUTER_ADDRESS } from 'config/constants/exchange'
 import { useCallback, useMemo } from 'react'
-import { logError } from 'utils/sentry'
 import { Field } from '../state/swap/actions'
 import { useHasPendingApproval, useTransactionAdder } from '../state/transactions/hooks'
 import { calculateGasMargin } from '../utils'
@@ -115,7 +114,6 @@ export function useApproveCallback(
         })
       })
       .catch((error: any) => {
-        logError(error)
         console.error('Failed to approve token', error)
         if (error?.code !== 4001) {
           toastError(t('Error'), error.message)

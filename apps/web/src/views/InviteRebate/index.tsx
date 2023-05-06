@@ -230,7 +230,7 @@ const InviteRebatePage = () => {
                 <Flex borderRadius="20px" mt="12px" background="#CEF249" style={{ width: "100%" }} padding="16px 20px" flexDirection="column" >
                     <Flex justifyContent="space-between" alignItems="center" >
                         <Box>
-                            <Text>我的佣金（BMB）</Text>
+                            <Text>我的佣金（STP）</Text>
                             <Text fontSize="18px" fontWeight="500">2359.94</Text>
                             <Text marginTop="16px">可提取佣金</Text>
                             <Text fontSize="18px" fontWeight="500">0.00 </Text>

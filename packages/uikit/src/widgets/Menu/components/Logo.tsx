@@ -24,7 +24,8 @@ const StyledLink = styled("a")`
   .desktop-icon {
     display: none;
     ${({ theme }) => theme.mediaQueries.lg} {
-      display: block;
+      display: flex;
+      align-items: center;
     }
   }
   .eye {
@@ -46,7 +47,7 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
   const innerLogo = (
     <>
       <LogoIcon className="mobile-icon" />
-      <LogoWithTextIcon  className="desktop-icon" />
+      <LogoWithTextIcon className="desktop-icon" />
     </>
   );
 

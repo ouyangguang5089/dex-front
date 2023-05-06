@@ -62,9 +62,9 @@ const MiningPoolPage = () => {
                 <Banner justifyContent="space-between" marginY="12px" padding="16px">
                     <Box>
                         <Text marginTop="6px">当前池子总奖励</Text>
-                        <Text fontWeight="400" marginTop="6px">1.766.119.05 BMB</Text>
+                        <Text fontWeight="400" marginTop="6px">1.766.119.05 STP</Text>
                         <Text marginTop="16px">当前个人可提现奖励</Text>
-                        <Text fontWeight="400" marginTop="6px">0.00 BMB</Text>
+                        <Text fontWeight="400" marginTop="6px">0.00 STP</Text>
                     </Box>
                     <Flex flexDirection="column" alignItems="center">
                         <Image
@@ -84,7 +84,7 @@ const MiningPoolPage = () => {
                         <NewTab style={{ backgroundColor: index === 0 ? "#CEF249" : "transparent" }}>全部</NewTab>
                         <NewTab style={{ backgroundColor: index === 1 ? "#CEF249" : "transparent" }}>USDT</NewTab>
                         <NewTab style={{ backgroundColor: index === 2 ? "#CEF249" : "transparent" }}>BUSD</NewTab>
-                        <NewTab style={{ backgroundColor: index === 3 ? "#CEF249" : "transparent" }}>BMB</NewTab>
+                        <NewTab style={{ backgroundColor: index === 3 ? "#CEF249" : "transparent" }}>STP</NewTab>
                     </NewTabMenu>
                     <Box width="90px">
                         <InputGroup startIcon={<Search width="20px" />} scale="sm">
@@ -107,7 +107,7 @@ const MiningPoolPage = () => {
                                     <Text small color="#909097">当前总奖励</Text>
                                 </dt>
                                 <dd >
-                                    <Text small>1.766.05 BMB</Text>
+                                    <Text small>1.766.05 STP</Text>
                                 </dd>
                             </dl>
                             <dl style={{ width: "33%" }}>
@@ -141,7 +141,7 @@ const MiningPoolPage = () => {
                                     <Text small color="#909097">个人奖励</Text>
                                 </dt>
                                 <dd >
-                                    <Text small color="#884FDB">0.00 BMB</Text>
+                                    <Text small color="#884FDB">0.00 STP</Text>
                                 </dd>
                             </dl>
                         </Row>

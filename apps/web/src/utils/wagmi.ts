@@ -16,8 +16,8 @@ const CHAINS = [bscTestnet] // bsc, mainnet, goerli,
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null
-
   switch (networkName) {
+
     case 'homestead':
       if (process.env.NEXT_PUBLIC_NODE_REAL_API_ETH) {
         host = `eth-mainnet.nodereal.io/v1/${process.env.NEXT_PUBLIC_NODE_REAL_API_ETH}`
@@ -27,6 +27,9 @@ const getNodeRealUrl = (networkName: string) => {
       if (process.env.NEXT_PUBLIC_NODE_REAL_API_GOERLI) {
         host = `eth-goerli.nodereal.io/v1/${process.env.NEXT_PUBLIC_NODE_REAL_API_GOERLI}`
       }
+      break
+    case 'bsc-testnet':
+      host = 'data-seed-prebsc-1-s2.binance.org:8545'
       break
     default:
       host = null
@@ -39,7 +42,7 @@ const getNodeRealUrl = (networkName: string) => {
   const url = `https://${host}`
   return {
     http: url,
-    webSocket: url.replace(/^http/i, 'wss').replace('.nodereal.io/v1', '.nodereal.io/ws/v1'),
+    webSocket: networkName === 'bsc-testnet' ? null : url.replace(/^http/i, 'wss').replace('.nodereal.io/v1', '.nodereal.io/ws/v1'),
   }
 }
 
@@ -69,8 +72,7 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'PancakeSwap',
-    appLogoUrl: 'https://pancakeswap.com/logo.png',
+    appName: 'SmartSwap'
   },
 })
 

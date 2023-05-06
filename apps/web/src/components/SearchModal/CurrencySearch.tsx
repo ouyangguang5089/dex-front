@@ -191,7 +191,6 @@ function CurrencySearch({
         </Column>
       )
     }
-
     return Boolean(filteredSortedTokens?.length) || hasFilteredInactiveTokens ? (
       <Box margin="24px -24px">
         <CurrencyList

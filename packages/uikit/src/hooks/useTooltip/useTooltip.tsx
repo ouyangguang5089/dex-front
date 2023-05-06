@@ -212,7 +212,7 @@ const useTooltip = (content: React.ReactNode, options?: TooltipOptions): Tooltip
 
   const tooltip = (
     <StyledTooltip
-      data-theme={isDark ? "light" : "dark"}
+      data-theme={isDark ? "dark" : "light"}
       {...animationMap}
       variants={animationVariants}
       transition={{ duration: 0.3 }}
