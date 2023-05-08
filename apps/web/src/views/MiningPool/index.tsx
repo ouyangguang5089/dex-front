@@ -1,11 +1,14 @@
-import { Box, Flex, Heading, Text, Button, InputGroup, TabMenu, Input, Tab, Row, Card, CardBody, Loading, SearchIcon } from '@pancakeswap/uikit'
+import { Contract } from '@ethersproject/contracts'
+import { Box, Flex, Heading, Text, Button, InputGroup, TabMenu, Input, Tab, Row, Card, CardBody, Loading, SearchIcon, useToast } from '@pancakeswap/uikit'
 
 
 import { useGetMiningCoin, useGetMiningList } from 'api'
+import { useSwapMiningContract } from 'config/constants/SwapMining'
 import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { CurrencyLogo } from 'views/Info/components/CurrencyLogo'
+import { useAccount, useSigner } from 'wagmi'
 
 
 
@@ -176,6 +179,20 @@ const MiningPool = () => {
         mutate()
     }, [index, mutate]);
 
+    const { address } = useAccount();
+    const contract = useSwapMiningContract();
+    const { toastSuccess, toastError } = useToast();
+    const [isSubLoading,setSubLoading] = useState(false);
+    const omWithdrawal = async () => {
+        setSubLoading(true);
+        try {
+            await contract.takerWithdraw();
+            toastSuccess("提取成功")
+        } catch (error) {
+            toastError("提取失败")
+        }
+        setSubLoading(false);
+    }
     return (
         <Page >
             <Flex width={['335px']} marginX="auto" height="100%" flexDirection="column" justifyContent="center" alignItems="flex-start" >
@@ -195,9 +212,11 @@ const MiningPool = () => {
                             alt=""
                             unoptimized
                         />
-                        <WithdrawalButton>
-                            提取
-                        </WithdrawalButton>
+                        {
+                            address ? <WithdrawalButton isLoading={isSubLoading} onClick={() => omWithdrawal()}>
+                                提取
+                            </WithdrawalButton> : <Button disabled scale="sm">请链接钱包</Button>
+                        }
                     </Flex>
                 </Banner>
                 <Flex width="100%" marginTop="32px" justifyContent="space-between">
@@ -213,7 +232,7 @@ const MiningPool = () => {
                     </Box>
                 </Flex>
                 <Flex width="100%" padding="10px 0" justifyContent="center">
-                    {isLoading && isValidating ? <Loading /> : coinPairs.length === 0 && <Empty/>}
+                    {isLoading && isValidating ? <Loading /> : coinPairs.length === 0 && <Empty />}
                 </Flex>
                 {coinPairs.map(item => (
                     <PairItem {...item} key={`coinpairs-${item?.poolId}`} />

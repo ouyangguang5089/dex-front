@@ -15,10 +15,10 @@ import { SettingsMode } from './GlobalSettings/types'
 
 const Menu = (props) => {
   const { isDark, setTheme } = useTheme()
-  const cakePriceUsd = useCakeBusdPrice({ forceMainnet: true })
+  // const cakePriceUsd = useCakeBusdPrice({ forceMainnet: true })
   const { currentLanguage, setLanguage, t } = useTranslation()
   const { pathname } = useRouter()
-  const [showPhishingWarningBanner] = usePhishingBannerManager()
+  // const [showPhishingWarningBanner] = usePhishingBannerManager()
 
   const menuItems = useMenuItems()
 
@@ -45,13 +45,13 @@ const Menu = (props) => {
             <UserMenu />
           </>
         }
-        banner={showPhishingWarningBanner && false && typeof window !== 'undefined' && <PhishingWarningBanner />}
+        // banner={showPhishingWarningBanner && false && typeof window !== 'undefined' && <PhishingWarningBanner />}
         isDark={isDark}
         toggleTheme={toggleTheme}
         currentLang={currentLanguage.code}
         langs={languageList}
         setLang={setLanguage}
-        cakePriceUsd={cakePriceUsd}
+        // cakePriceUsd={cakePriceUsd}
         links={menuItems}
         subLinks={activeMenuItem?.hideSubNav || activeSubMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
         footerLinks={getFooterLinks}
