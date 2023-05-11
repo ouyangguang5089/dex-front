@@ -63,9 +63,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM]],
   ],
   [ChainId.BSC_TESTNET]: [
-    [bscTokens.cake, bscTokens.wbnb],
-    [bscTokens.busd, bscTokens.usdt],
-    [bscTokens.dai, bscTokens.usdt],
+
   ],
 }
 
@@ -94,15 +92,15 @@ export const ONE_HUNDRED_PERCENT = new Percent('1')
 export const BASE_FEE = new Percent(JSBI.BigInt(25), BIPS_BASE)
 export const INPUT_FRACTION_AFTER_FEE = ONE_HUNDRED_PERCENT.subtract(BASE_FEE)
 
-// BNB
-export const DEFAULT_INPUT_CURRENCY = 'BNB'
-// CAKE
-export const DEFAULT_OUTPUT_CURRENCY = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82'
+// TODO DEFAULT_INPUT_CURRENCY STP
+export const DEFAULT_INPUT_CURRENCY = '0x63B99558c599415BCba1f438464AA9ED771489Bf'
+// TODO DEFAULT_OUTPUT_CURRENCY USDT
+export const DEFAULT_OUTPUT_CURRENCY = '0x060a5563455E76d1C207Ac1deB3ABc984C757aE4'
 
 // Handler string is passed to Gelato to use PCS router
-export const GELATO_HANDLER = 'pancakeswap'
+export const GELATO_HANDLER = 'smartswap' 
 export const GENERIC_GAS_LIMIT_ORDER_EXECUTION = BigNumber.from(500000)
 
-export const LIMIT_ORDERS_DOCS_URL = 'https://docs.pancakeswap.finance/products/pancakeswap-exchange/limit-orders'
+export const LIMIT_ORDERS_DOCS_URL = ''
 
 export const EXCHANGE_PAGE_PATHS = ['/swap', '/limit-orders', 'liquidity', '/add', '/find', '/remove']

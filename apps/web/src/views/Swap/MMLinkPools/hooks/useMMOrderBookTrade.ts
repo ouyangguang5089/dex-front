@@ -16,7 +16,7 @@ import { parseMMTrade } from '../utils/exchange'
 import { useMMParam } from './useMMParam'
 import { useIsMMQuotingPair } from './useIsMMQuotingPair'
 
-// TODO: update
+
 const BAD_RECIPIENT_ADDRESSES: string[] = [
   '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f', // v2 factory
   '0xf164fC0Ec4E93095b804a4795bBe1e041497b92a', // v2 router 01

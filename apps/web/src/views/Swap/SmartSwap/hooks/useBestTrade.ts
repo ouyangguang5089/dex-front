@@ -48,7 +48,7 @@ function createUseBestTrade<T>(key: string, getBestTrade: (options: TradeOptions
             allCommonPairs,
           ]
         : null,
-      // TODO: trader should use user Wallet address
+
       () => getBestTrade({ amount, currency, tradeType, allCommonPairs, trader: '', maxHops }),
       {
         keepPreviousData: true,

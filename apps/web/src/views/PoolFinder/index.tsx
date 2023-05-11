@@ -12,9 +12,9 @@ import {
 import { useAccount } from 'wagmi'
 import { useTranslation } from '@pancakeswap/localization'
 import { BIG_INT_ZERO } from 'config/constants/exchange'
-import useNativeCurrency from 'hooks/useNativeCurrency'
 import { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { bscTestnetTokens } from '@pancakeswap/tokens'
 import { AppBody, AppHeader } from '../../components/App'
 import { LightCard } from '../../components/Card'
 import Row from '../../components/Layout/Row'
@@ -44,11 +44,10 @@ const StyledButton = styled(Button)`
 export default function PoolFinder() {
   const { address: account } = useAccount()
   const { t } = useTranslation()
-  const native = useNativeCurrency()
 
   const [activeField, setActiveField] = useState<number>(Fields.TOKEN1)
-  const [currency0, setCurrency0] = useState<Currency | null>(native)
-  const [currency1, setCurrency1] = useState<Currency | null>(null)
+  const [currency0, setCurrency0] = useState<Currency | null>(bscTestnetTokens.stp) // TODO  默认 LP token
+  const [currency1, setCurrency1] = useState<Currency | null | any>(bscTestnetTokens.usdt)
 
   const [pairState, pair] = usePair(currency0 ?? undefined, currency1 ?? undefined)
   const addPair = usePairAdder()
@@ -62,9 +61,9 @@ export default function PoolFinder() {
     pairState === PairState.NOT_EXISTS ||
     Boolean(
       pairState === PairState.EXISTS &&
-        pair &&
-        JSBI.equal(pair.reserve0.quotient, BIG_INT_ZERO) &&
-        JSBI.equal(pair.reserve1.quotient, BIG_INT_ZERO),
+      pair &&
+      JSBI.equal(pair.reserve0.quotient, BIG_INT_ZERO) &&
+      JSBI.equal(pair.reserve1.quotient, BIG_INT_ZERO),
     )
 
   const position = useTokenBalance(account ?? undefined, pair?.liquidityToken)

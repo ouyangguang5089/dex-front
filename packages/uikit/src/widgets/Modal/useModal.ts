@@ -28,7 +28,7 @@ const useModal = (
       // For example ConfirmSwapModal in exchange has ~500 lines prop object that stringifies to same string
       // and online diff checker says both objects are identical but lodash isEqual thinks they are different
       // Do not try to replace JSON.stringify with isEqual, high risk of infinite rerenders
-      // TODO: Find a good way to handle modal updates, this whole flow is just backwards-compatible workaround,
+
       // would be great to simplify the logic here
       if (modalProps && oldModalProps && JSON.stringify(modalProps) !== JSON.stringify(oldModalProps)) {
         setModalNode(modal);

@@ -1,12 +1,12 @@
 import useSWR from "swr";
 import { useMemo } from "react";
 import { useAccount } from "wagmi";
+import useSWRMutation from 'swr/mutation';
 import { fetcher } from "./fetcher";
 
 export const useUploadImage = ({
     file,
-    enable,
-}: { file?: File, enable?: boolean } = {}) => {
+}: { file?: File } = {}) => {
     const requestInit: RequestInit = useMemo(() => {
         const body = new FormData()
         body.append('file', file)
@@ -15,12 +15,7 @@ export const useUploadImage = ({
             body,
         }
     }, [file])
-    const url = useMemo(()=>{
-        return file && enable ? `${process.env.NEXT_PUBLIC_MININGPOOL_BASE_URL}/api/sys/upladImage` : null;
-    },[enable, file]);
-    return useSWR(() => {
-        return url;
-    }, (uri) => fetcher(uri, requestInit));
+    return useSWRMutation(`${process.env.NEXT_PUBLIC_MININGPOOL_BASE_URL}/api/sys/upladImage`, (uri) => fetcher(uri, requestInit));
 }
 
 export const useGetChainList = () => {
@@ -62,11 +57,10 @@ export const useChangeCoin = ({
         body.append('officialWebsite', officialWebsite)
         body.append('submitAddress', address)
         return {
-            method: 'GET',
+            method: 'POST',
             body,
         }
     }, [address, chain, coinName, contractAddress, email, logo, officialWebsite])
-    return useSWR(() => {
-        return contractAddress && coinName && logo && email && officialWebsite && chain && address ? `${process.env.NEXT_PUBLIC_MININGPOOL_BASE_URL}/api/swapCoin/addCoin` : null;
-    }, (url) => fetcher(url, requestInit));
+    return useSWRMutation(`${process.env.NEXT_PUBLIC_MININGPOOL_BASE_URL}/api/swapCoin/addCoin`, (url) => fetcher(url, requestInit));
 }
+

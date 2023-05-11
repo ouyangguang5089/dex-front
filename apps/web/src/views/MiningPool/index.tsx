@@ -213,7 +213,7 @@ const MiningPool = () => {
                             unoptimized
                         />
                         {
-                            address ? <WithdrawalButton isLoading={isSubLoading} onClick={() => omWithdrawal()}>
+                            address ? <WithdrawalButton disabled={userRewards<=0} isLoading={isSubLoading} onClick={() => omWithdrawal()}>
                                 提取
                             </WithdrawalButton> : <Button disabled scale="sm">请链接钱包</Button>
                         }

@@ -81,7 +81,7 @@ export class MiniProgramConnector extends InjectedConnector {
 
   async getProvider() {
     if (typeof window !== 'undefined') {
-      // TODO: Fallback to `ethereum#initialized` event for async injection
+
       // https://github.com/MetaMask/detect-provider#synchronous-and-asynchronous-injection=
       this.provider = this.getWeb3Provider()
     }

@@ -51,7 +51,7 @@ export function useSwitchNetwork() {
             return c
           })
           .catch(() => {
-            // TODO: review the error
+      
             toastError(t('Error connecting, please retry and confirm in wallet!'))
           })
           .finally(() => setLoading(false))
@@ -80,7 +80,7 @@ export function useSwitchNetwork() {
           connector.id !== ConnectorNames.WalletConnect &&
           !(
             typeof window !== 'undefined' &&
-            // @ts-ignore // TODO: add type later
+            // @ts-ignore
             (window.ethereum?.isSafePal || window.ethereum?.isMathWallet)
           )
         : true,

@@ -1,6 +1,5 @@
 import { useTranslation } from '@pancakeswap/localization'
 import { Currency, CurrencyAmount, Price, Trade, TradeType } from '@pancakeswap/sdk'
-import { CAKE, USDC } from '@pancakeswap/tokens'
 import { equalsIgnoreCase } from '@pancakeswap/utils/equalsIgnoreCase'
 import tryParseAmount from '@pancakeswap/utils/tryParseAmount'
 import IPancakePairABI from 'config/abi/IPancakePair.json'
@@ -19,6 +18,7 @@ import { multicallv2 } from 'utils/multicall'
 import { getTokenAddress } from 'views/Swap/components/Chart/utils'
 import { useBestTrade } from 'views/Swap/SmartSwap/hooks/useBestTrade'
 import { useAccount } from 'wagmi'
+import { GetSwapKLine, useGetSwapKLine } from 'api/swap'
 import { AppState, useAppDispatch } from '../index'
 import { useUserSlippageTolerance } from '../user/hooks'
 import { useCurrencyBalances } from '../wallet/hooks'
@@ -41,7 +41,7 @@ export function useSwapState(): AppState['swap'] {
   return useSelector<AppState, AppState['swap']>((state) => state.swap)
 }
 
-// TODO: update
+
 const BAD_RECIPIENT_ADDRESSES: string[] = [
   '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f', // v2 factory
   '0xf164fC0Ec4E93095b804a4795bBe1e041497b92a', // v2 router 01
@@ -254,8 +254,7 @@ export function useDefaultsFromURLSearch():
 
   useEffect(() => {
     if (!chainId || !native) return
-    const parsed = queryParametersToSwapState(query, native.symbol, CAKE[chainId]?.address ?? USDC[chainId]?.address)
-
+    const parsed = queryParametersToSwapState(query)
     dispatch(
       replaceSwapState({
         typedValue: parsed.typedValue,
@@ -318,21 +317,30 @@ export const useFetchPairPrices = ({
         // Try to get at least derived data for chart
         // This is used when there is no direct data for pool
         // i.e. when multihops are necessary
-        const derivedData = await fetchDerivedPriceData(
-          token0Address,
-          token1Address,
-          timeWindow,
-          stableSwapPairs.some(
-            (p) =>
-              equalsIgnoreCase(p.token0.wrapped.address, token0Address) ||
-              equalsIgnoreCase(p.token1.wrapped.address, token0Address),
-          ),
-          stableSwapPairs.some(
-            (p) =>
-              equalsIgnoreCase(p.token0.wrapped.address, token1Address) ||
-              equalsIgnoreCase(p.token1.wrapped.address, token1Address),
-          ),
-        )
+        // const derivedData = await fetchDerivedPriceData(
+        //   token0Address,
+        //   token1Address,
+        //   timeWindow,
+        //   stableSwapPairs.some(
+        //     (p) =>
+        //       equalsIgnoreCase(p.token0.wrapped.address, token0Address) ||
+        //       equalsIgnoreCase(p.token1.wrapped.address, token0Address),
+        //   ),
+        //   stableSwapPairs.some(
+        //     (p) =>
+        //       equalsIgnoreCase(p.token0.wrapped.address, token1Address) ||
+        //       equalsIgnoreCase(p.token1.wrapped.address, token1Address),
+        //   ),
+        // )
+        const result = await GetSwapKLine({
+          sellAddress: token0Address,
+          buyAddress: token1Address,
+          type: timeWindow,
+        })
+        const derivedData = {
+          token1DerivedUSD: result.data
+        }
+        // TODO normalizeDerivedChartData
         if (derivedData) {
           const normalizedDerivedData = normalizeDerivedChartData(derivedData)
           dispatch(updateDerivedPairData({ pairData: normalizedDerivedData, pairId, timeWindow }))

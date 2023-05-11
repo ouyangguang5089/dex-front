@@ -309,7 +309,7 @@ const StakeAction: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = ({
     }
   }
 
-  // TODO: Move this out to prevent unnecessary re-rendered
+
   if (!isApproved) {
     return (
       <Button mt="8px" width="100%" disabled={pendingTx || isBloctoETH} onClick={handleApprove}>

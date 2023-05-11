@@ -22,7 +22,6 @@ const SubmitToken = () => {
         officialWebsite: '',
     });
     const [image, setImage] = useState(null);
-    const [error, setError] = useState('请设置信息');
     const { address } = useAccount();
 
     const { data: chainResult } = useGetChainList();
@@ -56,12 +55,13 @@ const SubmitToken = () => {
             [key]: value,
         })
     }
-    const { mutate, isLoading: isUploading } = useUploadImage({ file: image, enable: !error })
-    const { data: changeResult } = useChangeCoin(data)
+    const { trigger, isMutating: isUploading } = useUploadImage({ file: image })
+    const { trigger: triggerCoin } = useChangeCoin(data)
     const { toastSuccess, toastError } = useToast();
     // eslint-disable-next-line consistent-return
     const onSubmit = async () => {
         let err = '';
+        const tmpData = data;
         if (!address) err = '请链接钱包';
         else if (!data?.chain) err = '请输入正确的链';
         // eslint-disable-next-line no-useless-escape
@@ -72,37 +72,34 @@ const SubmitToken = () => {
         // eslint-disable-next-line no-useless-escape
         else if (!/^(https?:\/\/)?[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(data?.officialWebsite)) err = '请输入正确的官方网址';
         else if (!image) err = '请上传logo';
-        setError(err);
         if (err) {
             return toastError(err);
         }
         // 上传图片-
         if (image) {
-            await mutate().catch(() => {
+            await trigger().catch(() => {
                 toastError("上传图片失败，请重试！");
             }).then(res => {
                 if (res?.code === 200 && res?.data?.filePath) {
-                    setData({
-                        ...data,
-                        logo: res.data.filePath
-                    })
+                    tmpData.logo = res.data.filePath;
                 } else {
                     toastError("上传图片失败，请重试！");
                 }
             });
         }
+        if (tmpData.logo) {
+            await triggerCoin().catch(() => {
+                toastError('提交失败');
+            }).then((res) => {
+                if (res?.code === 200) {
+                    toastSuccess('提交成功');
+                } else {
+                    toastError('提交失败');
+                }
+            })
+        }
     }
 
-    useEffect(() => {
-        if (changeResult && changeResult?.code) {
-            if (changeResult?.code === 200) {
-                toastSuccess('提交成功');
-            } else {
-                toastError('提交失败');
-            }
-
-        }
-    }, [changeResult, toastError, toastSuccess])
 
     return (
         <Page >

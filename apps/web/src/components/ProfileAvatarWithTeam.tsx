@@ -36,7 +36,7 @@ const AvatarWrapper = styled.div<{ bg: string }>`
     border-radius: 50%;
   }
 `
-// TODO: replace with no profile avatar icon
+
 const AvatarInactive = styled(NoProfileAvatarIcon)`
   width: 100%;
   height: 100%;

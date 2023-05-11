@@ -30,7 +30,7 @@ function involvesAddress(
   )
 }
 
-// TODO: update
+
 const BAD_RECIPIENT_ADDRESSES: string[] = [
   '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f', // v2 factory
   '0xf164fC0Ec4E93095b804a4795bBe1e041497b92a', // v2 router 01
@@ -69,7 +69,6 @@ export function useDerivedSwapInfoWithStableSwap(
   const bestTradeWithStableSwap = useBestTrade(parsedAmount, dependentCurrency, tradeType, {
     maxHops: singleHop ? 1 : 3,
   })
-  // TODO add invariant make sure v2 trade has the same input & output amount as trade with stable swap
 
   const currencyBalances = {
     [Field.INPUT]: relevantTokenBalances[0],

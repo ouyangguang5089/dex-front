@@ -455,13 +455,11 @@ function parseCurrencyFromURLParameter(urlParam: any): string {
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
-    if (urlParam.toUpperCase() === 'BNB') return 'BNB'
-    if (valid === false) return 'BNB'
   }
   return ''
 }
 
-// TODO: combine with swap's version but use generic type. Same for helpers above
+
 // Note: swap has recipient and other things. Merging these 2 would probably be much easier if we get rid of recipient
 // Also the whole thing doesn't make sense, in swap inputValue is not initialized but typedValue is. WTF
 const queryParametersToSwapState = (parsedQs: ParsedUrlQuery): OrderState => {
