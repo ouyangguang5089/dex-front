@@ -380,7 +380,7 @@ export const predictionsSlice = createSlice({
       state.leaderboard.addressResults[account] = data
     })
     builder.addCase(fetchAddressResult.rejected, (state, action) => {
-      state.leaderboard.loadingState = FetchStatus.Fetched // TODO: should handle error
+      state.leaderboard.loadingState = FetchStatus.Fetched
       state.leaderboard.addressResults[action.payload] = null
     })
 

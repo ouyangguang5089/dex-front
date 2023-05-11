@@ -7,7 +7,7 @@
     "patch": 0
   },
   "tags": {},
-  "logoURI": "https://pancakeswap.finance/logo.png",
+  "logoURI": "https://api.smartswap.pro/logo.png", 
   "keywords": ["pancake", "default"],
   "tokens": [
     {
@@ -19,12 +19,12 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/bnb.png"
     },
     {
-      "name": "Wrapped BAKE",
-      "symbol": "BAKE",
-      "address": "0x95119E5f6EB49dd384FE20A3c49aA809347643B4",
+      "name": "USDT Token",
+      "symbol": "USDT",
+      "address": "0x060a5563455E76d1C207Ac1deB3ABc984C757aE4",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/0x95119E5f6EB49dd384FE20A3c49aA809347643B4.png"
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdt.png"
     },
     {
       "name": "BUSD Token",
@@ -35,84 +35,28 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/busd.png"
     },
     {
+      "name": "NUSIC Token",
+      "symbol": "NUSIC",
+      "address": "0xafB6B12aA9A7e8b060B3ECeB30303fB671Edf18c",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/0xafB6B12aA9A7e8b060B3ECeB30303fB671Edf18c.png"
+    },
+    {
+      "name": "STP Token",
+      "symbol": "STP",
+      "address": "0x63B99558c599415BCba1f438464AA9ED771489Bf",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/0x63B99558c599415BCba1f438464AA9ED771489Bf.png"
+    },
+    {
       "name": "ETH Token",
       "symbol": "ETH",
       "address": "0x5986800b56DcB7BCc2B8f0209F38F4F98e9a4F07",
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/eth.png"
-    },
-    {
-      "name": "BTCB Token",
-      "symbol": "BTCB",
-      "address": "0xe2bFE03401613fED48bbA18cb388Ce3479521eC4",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/btc.png"
-    },
-    {
-      "name": "BAND Token",
-      "symbol": "BAND",
-      "address": "0x246430297070DE1AC66A77C4EA326690171C3dFC",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/0x246430297070DE1AC66A77C4EA326690171C3dFC.png"
-    },
-    {
-      "name": "EOS Token",
-      "symbol": "EOS",
-      "address": "0xEC7998cb671Cf7573b9D75C480Eb6b8E365CeB92",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/eos.png"
-    },
-    {
-      "name": "USDT Token",
-      "symbol": "USDT",
-      "address": "0x060a5563455E76d1C207Ac1deB3ABc984C757aE4",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdt.png"
-    },
-    {
-      "name": "XRP Token",
-      "symbol": "XRP",
-      "address": "0x145cF690120f04f96F50843186479363Fce347cB",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/xrp.png"
-    },
-    {
-      "name": "BCH Token",
-      "symbol": "BCH",
-      "address": "0xBe111E024D71be29d6C3905F6fFDd0764Add75dC",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/0xBe111E024D71be29d6C3905F6fFDd0764Add75dC.png"
-    },
-    {
-      "name": "CAKE Token",
-      "symbol": "CAKE",
-      "address": "0x4d0d180df3C6f6DcA283067314AAfdb4799179e7",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x4d0d180df3C6f6DcA283067314AAfdb4799179e7.png"
-    },
-    {
-      "name": "DAI Token",
-      "symbol": "DAI",
-      "address": "0x90cA2E05D9AE2C3B4B8489dE4cd52A8907B56BAc",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x90cA2E05D9AE2C3B4B8489dE4cd52A8907B56BAc.png"
-    },
-    {
-      "name": "UST Token",
-      "symbol": "UST",
-      "address": "0xBdB50D067dA16De3694dA7534A9D8c3925f27c99",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0xBdB50D067dA16De3694dA7534A9D8c3925f27c99.png"
     }
   ]
 }

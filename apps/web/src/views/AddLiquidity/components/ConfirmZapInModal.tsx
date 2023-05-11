@@ -131,7 +131,7 @@ const ConfirmZapInModal: React.FC<React.PropsWithChildren<InjectedModalProps & C
   const inputPercent = useMemo(() => {
     return swapInCurrencyAmount && swapOutCurrencyAmount
       ? clamp(
-          // TODO: avoid use number
+
           +swapInCurrencyAmount.toExact() /
             +swapOutCurrencyAmount.toExact() /
             (+pair.priceOf(swapOutCurrencyAmount.currency.wrapped).toSignificant() +

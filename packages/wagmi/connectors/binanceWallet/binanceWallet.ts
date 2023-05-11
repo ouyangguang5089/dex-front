@@ -99,7 +99,7 @@ export class BinanceWalletConnector extends InjectedConnector {
 
   async getProvider() {
     if (typeof window !== 'undefined') {
-      // TODO: Fallback to `ethereum#initialized` event for async injection
+
       // https://github.com/MetaMask/detect-provider#synchronous-and-asynchronous-injection=
       if (window.BinanceChain) {
         this.provider = window.BinanceChain

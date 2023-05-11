@@ -54,7 +54,7 @@ export const useGetCakeBalance = () => {
   const { chainId } = useWeb3React()
   const { balance, fetchStatus } = useTokenBalance(CAKE[chainId]?.address || CAKE[ChainId.BSC_TESTNET]?.address, true)
 
-  // TODO: Remove ethers conversion once useTokenBalance is converted to ethers.BigNumber
+
   return { balance: EthersBigNumber.from(balance.toString()), fetchStatus }
 }
 

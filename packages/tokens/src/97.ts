@@ -11,6 +11,13 @@ export const bscTestnetTokens = {
     'BAKE',
     'Bakeryswap Token',
   ),
+  stp: new ERC20Token(
+    ChainId.BSC_TESTNET,
+    '0x63B99558c599415BCba1f438464AA9ED771489Bf', // TODO STP
+    18,
+    'STP',
+    'STP Token',
+  ),
   busd: BUSD_TESTNET,
   // syrup: new ERC20Token(
   //   ChainId.BSC_TESTNET,
@@ -58,10 +65,14 @@ export const bscTestnetTokens = {
     'USDC',
     'Binance-Peg USD Coin',
   ),
-  usdt: new ERC20Token(ChainId.BSC_TESTNET,
+  usdt: new ERC20Token(
+    ChainId.BSC_TESTNET,
     '0x060a5563455E76d1C207Ac1deB3ABc984C757aE4', // TODO USDT
     // '0x0fB5D7c73FA349A90392f873a4FA1eCf6a3d0a96'
-    18, 'USDT', 'Tether USD'),
+    18,
+    'USDT',
+    'Tether USD',
+  ),
   xrp: new ERC20Token(ChainId.BSC_TESTNET,
     '0x145cF690120f04f96F50843186479363Fce347cB', // TODO XRP
     18,

@@ -6,7 +6,7 @@ import { isStableSwapPair } from './pair'
 export function getMidPrice<TIn extends Currency, TOut extends Currency>(
   route: RouteWithStableSwap<TIn, TOut>,
 ): Price<TIn, TOut> {
-  // TODO caching
+
   const prices: Price<Currency, Currency>[] = []
   for (const [i, pair] of route.pairs.entries()) {
     if (isStableSwapPair(pair)) {

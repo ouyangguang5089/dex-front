@@ -17,11 +17,11 @@ import {
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSwapActionHandlers } from 'state/swap/useSwapActionHandlers'
 import { useStableSwapByDefault } from 'state/user/smartRouter'
 import { maxAmountSpend } from 'utils/maxAmountSpend'
-import AccessRisk from 'views/Swap/components/AccessRisk'
+// import AccessRisk from 'views/Swap/components/AccessRisk'
 
 import replaceBrowserHistory from '@pancakeswap/utils/replaceBrowserHistory'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
@@ -50,7 +50,7 @@ import MMCommitButton from '../MMLinkPools/components/MMCommitButton'
 import { MMSlippageTolerance } from '../MMLinkPools/components/MMSlippageTolerance'
 import { MMLiquidityWarning } from '../MMLinkPools/components/MMLiquidityWarning'
 import { parseMMError, shouldShowMMSpecificError, shouldShowMMLiquidityError } from '../MMLinkPools/utils/exchange'
-import { SwapFeaturesContext } from '../SwapFeaturesContext'
+// import { SwapFeaturesContext } from '../SwapFeaturesContext'
 import SmartSwapCommitButton from './components/SmartSwapCommitButton'
 import { useDerivedSwapInfoWithStableSwap, useIsSmartRouterBetter, useTradeInfo } from './hooks'
 import { MMError } from '../MMLinkPools/apis'
@@ -59,7 +59,7 @@ import { useDerivedSwapInfoWithMM } from '../MMLinkPools/hooks/useDerivedSwapInf
 export const SmartSwapForm: React.FC<{ handleOutputSelect: (newCurrencyOutput: Currency) => void }> = ({
   handleOutputSelect,
 }) => {
-  const { isAccessTokenSupported } = useContext(SwapFeaturesContext)
+  // const { isAccessTokenSupported } = useContext(SwapFeaturesContext)
   const { t } = useTranslation()
   const { refreshBlockNumber, isLoading } = useRefreshBlockNumberID()
   const warningSwapHandler = useWarningImport()

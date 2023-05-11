@@ -79,7 +79,7 @@ export const getVotes = async (first: number, skip: number, where: VoteWhere): P
   return response.votes
 }
 
-// TODO: lazy get all votes when user click load more
+
 export const getAllVotes = async (proposal: Proposal, votesPerChunk = 1000): Promise<Vote[]> => {
   const voters = await new Promise<Vote[]>((resolve, reject) => {
     let votes: Vote[] = []

@@ -101,7 +101,7 @@ const ProfileHeader: React.FC<React.PropsWithChildren<HeaderProps>> = ({
   const avatar = useMemo(() => {
     const getIconButtons = () => {
       return (
-        // TODO: Share functionality once user profiles routed by ID
+    
         <Flex display="inline-flex">
           {accountPath && (
             <IconButton

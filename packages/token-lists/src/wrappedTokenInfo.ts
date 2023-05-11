@@ -42,7 +42,7 @@ export type TokenAddressMap<TChainId extends number> = Readonly<{
 }>
 
 export function deserializeToken(serializedToken: SerializedWrappedToken): Token {
-  if (serializedToken.logoURI) {
+  if (serializedToken?.logoURI) {
     return new WrappedTokenInfo({
       chainId: serializedToken.chainId,
       address: serializedToken.address,

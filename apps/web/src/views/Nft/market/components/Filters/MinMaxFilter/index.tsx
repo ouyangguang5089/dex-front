@@ -35,7 +35,7 @@ export const MinMaxFilter: React.FC<React.PropsWithChildren<MinMaxFilterProps>> 
     onApply(currentMin, currentMax)
   }
 
-  // TODO: circle back to this
+
   const handleClear = () => {
     setCurrentMax(max)
     setCurrentMin(min)

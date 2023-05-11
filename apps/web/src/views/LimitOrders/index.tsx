@@ -97,7 +97,7 @@ const LimitOrders = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [importTokensNotInDefault.length])
 
-  // TODO: fiat values
+
 
   const {
     handlers: { handleInput, handleCurrencySelection, handleSwitchTokens, handleLimitOrderSubmission, handleRateType },

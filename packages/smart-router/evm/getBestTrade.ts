@@ -20,7 +20,7 @@ function createGetBestTrade<TTradeType extends TradeType>(tradeType: TTradeType)
     options: BestTradeOptions,
   ): Promise<TradeWithStableSwap<Currency, Currency, TradeType> | null> {
     const { provider } = options
-    // TODO invariant check input and output on the same chain
+
     const {
       currency: { chainId },
     } = amountIn

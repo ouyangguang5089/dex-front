@@ -37,7 +37,7 @@ const GradientModalHeader = styled(ModalHeader)`
   padding-top: 24px;
 `
 
-// TODO: Copy from src/views/Predictions/components/RiskDisclaimer.tsx
+
 // Will replace that with this modal.
 
 const DisclaimerModal: React.FC<React.PropsWithChildren<RiskDisclaimerProps>> = ({
