@@ -12,7 +12,17 @@ export const bscTokens = {
     'BNB',
     'https://www.binance.com/',
   ),
+  nusic: new ERC20Token(
+    ChainId.BSC,
+    '0x7E58a5c150B3C9171100FDeE0Dd22Ee666dB9545',
+    18,
+    'NUSIC',
+    'NUSIC',
+    'https://pancakeswap.finance/',
+  ),
   cake: CAKE_MAINNET,
+  busd: BUSD_BSC,
+  usdt: USDT_BSC,
   gmi: new ERC20Token(
     ChainId.BSC,
     '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846',
@@ -85,7 +95,6 @@ export const bscTokens = {
     'ChainId.BSC Defi blue chips token',
     'https://powerpool.finance/',
   ),
-  busd: BUSD_BSC,
   dai: new ERC20Token(
     ChainId.BSC,
     '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
@@ -94,7 +103,7 @@ export const bscTokens = {
     'Dai Stablecoin',
     'https://www.makerdao.com/',
   ),
-  usdt: USDT_BSC,
+  
   btcb: new ERC20Token(
     ChainId.BSC,
     '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',

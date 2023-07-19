@@ -1,5 +1,6 @@
 import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
+// TODO chain common token
 export const CAKE_MAINNET = new ERC20Token(
   ChainId.BSC,
   '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',

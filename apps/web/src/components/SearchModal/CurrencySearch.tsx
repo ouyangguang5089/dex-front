@@ -111,6 +111,7 @@ function CurrencySearch({
 
   const native = useNativeCurrency()
 
+
   const showNative: boolean = useMemo(() => {
     if (tokensToShow) return false
     const s = debouncedQuery.toLowerCase().trim()
@@ -121,6 +122,7 @@ function CurrencySearch({
     const filterToken = createFilterToken(debouncedQuery, (address) => Boolean(isAddress(address)))
     return Object.values(tokensToShow || allTokens).filter(filterToken)
   }, [tokensToShow, allTokens, debouncedQuery])
+
 
   const filteredQueryTokens = useSortedTokensByQuery(filteredTokens, debouncedQuery)
 

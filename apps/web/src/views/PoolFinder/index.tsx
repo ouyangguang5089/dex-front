@@ -14,7 +14,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { BIG_INT_ZERO } from 'config/constants/exchange'
 import { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { bscTestnetTokens } from '@pancakeswap/tokens'
+import { bscTestnetTokens, bscTokens } from '@pancakeswap/tokens'
 import { AppBody, AppHeader } from '../../components/App'
 import { LightCard } from '../../components/Card'
 import Row from '../../components/Layout/Row'
@@ -46,8 +46,8 @@ export default function PoolFinder() {
   const { t } = useTranslation()
 
   const [activeField, setActiveField] = useState<number>(Fields.TOKEN1)
-  const [currency0, setCurrency0] = useState<Currency | null>(bscTestnetTokens.stp) // TODO  默认 LP token
-  const [currency1, setCurrency1] = useState<Currency | null | any>(bscTestnetTokens.usdt)
+  const [currency0, setCurrency0] = useState<Currency | null>(bscTokens.nusic) // TODO  默认 LP token
+  const [currency1, setCurrency1] = useState<Currency | null | any>(bscTokens.usdt)
 
   const [pairState, pair] = usePair(currency0 ?? undefined, currency1 ?? undefined)
   const addPair = usePairAdder()

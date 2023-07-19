@@ -39,6 +39,7 @@ const mapWithoutUrls = (tokenMap: TokenAddressMap<ChainId>, chainId: number) =>
 export function useAllTokens(): { [address: string]: ERC20Token } {
   const { chainId } = useActiveChainId()
   const tokenMap = useAtomValue(combinedTokenMapFromActiveUrlsAtom)
+  console.log("===",tokenMap)
   const userAddedTokens = useUserAddedTokens()
   return useMemo(() => {
     return (

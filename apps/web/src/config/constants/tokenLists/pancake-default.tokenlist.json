@@ -8,55 +8,39 @@
   },
   "tags": {},
   "logoURI": "https://api.smartswap.pro/logo.png", 
-  "keywords": ["pancake", "default"],
+  "keywords": ["Token", "default"],
   "tokens": [
     {
       "name": "Wrapped BNB",
       "symbol": "WBNB",
-      "address": "0x3889F84B6c7049f2b5044608c1551e1D2317A4b0",
-      "chainId": 97,
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "chainId": 56,
       "decimals": 18,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/bnb.png"
     },
     {
       "name": "USDT Token",
       "symbol": "USDT",
-      "address": "0x060a5563455E76d1C207Ac1deB3ABc984C757aE4",
-      "chainId": 97,
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "chainId": 56,
       "decimals": 18,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdt.png"
     },
     {
       "name": "BUSD Token",
       "symbol": "BUSD",
-      "address": "0x0D3B0755a67AC05A1aAc9B87BE13F8c6C4F32E5f",
-      "chainId": 97,
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "chainId": 56,
       "decimals": 18,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/busd.png"
     },
     {
       "name": "NUSIC Token",
       "symbol": "NUSIC",
-      "address": "0xafB6B12aA9A7e8b060B3ECeB30303fB671Edf18c",
-      "chainId": 97,
+      "address": "0x7E58a5c150B3C9171100FDeE0Dd22Ee666dB9545",
+      "chainId": 56,
       "decimals": 18,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/0xafB6B12aA9A7e8b060B3ECeB30303fB671Edf18c.png"
-    },
-    {
-      "name": "STP Token",
-      "symbol": "STP",
-      "address": "0x63B99558c599415BCba1f438464AA9ED771489Bf",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/0x63B99558c599415BCba1f438464AA9ED771489Bf.png"
-    },
-    {
-      "name": "ETH Token",
-      "symbol": "ETH",
-      "address": "0x5986800b56DcB7BCc2B8f0209F38F4F98e9a4F07",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/eth.png"
     }
   ]
 }

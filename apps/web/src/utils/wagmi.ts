@@ -12,7 +12,7 @@ import { LedgerConnector } from 'wagmi/connectors/ledger'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { SafeConnector } from './safeConnector'
 
-const CHAINS = [bscTestnet] // bsc, mainnet, goerli, 
+const CHAINS = [bsc] // bsc, bscTestnet mainnet, goerli,  // TODO Chains
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null

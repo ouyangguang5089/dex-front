@@ -18,8 +18,8 @@ export const useBSCWhiteList = () => {
 export const useTokenHighLightList = () => {
   const { chainId } = useActiveChainId()
   const bscWhiteList = useBSCWhiteList()
-  const allTokensFromBSC = useTokenDatasSWR(chainId === ChainId.BSC_TESTNET ? bscWhiteList : [], false)
+  const allTokensFromBSC = useTokenDatasSWR(chainId === ChainId.BSC ? bscWhiteList : [], false)
   const allTokensFromETH = useAllTokenHighLight()
 
-  return chainId === ChainId.BSC_TESTNET ? allTokensFromBSC : allTokensFromETH
+  return chainId === ChainId.BSC ? allTokensFromBSC : allTokensFromETH
 }

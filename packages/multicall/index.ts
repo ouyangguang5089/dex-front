@@ -10,8 +10,7 @@ export const multicallAddresses = { // TODO Multicall
   1: '',
   4: '',
   5: '',
-  56: '',
-  // 97: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  56: '0x9b813fF6461fF72618dc7fd9d249e7Bf02D4D050',
   97: '0x54A11C6c4dE0e9279ce5f3b39364F0F24431f6A8', 
 }
 
